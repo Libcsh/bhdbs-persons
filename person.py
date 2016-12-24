@@ -3,7 +3,6 @@ import requests
 
 class Person:
 
-
 	def __init__(self, **kwargs):
 		for k, v in kwargs.items():
 			setattr(self, k, v)
@@ -28,9 +27,7 @@ class Person:
 	def names_of_person(self):
 		self.name = self.name
 		return str(self.name[0].capitalize())
-		#return " ".join(str(elm.capitalize()) for elm in self.name)
-
-
+		# return " ".join(str(elm.capitalize()) for elm in self.name)
 
 
 def get_persons(last_name):
@@ -41,8 +38,3 @@ def get_persons(last_name):
 		for i in response.json()['items']:
 			ret.append(Person(**i))
 	return ret
-
-'''
-
-	    
-
