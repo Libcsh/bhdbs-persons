@@ -26,13 +26,11 @@ class Person:
 	@property
 	def names_of_person(self):
 		self.name = self.name
-		names_of = str(self.name[0].capitalize())
 		try:
-			return names_of
+			return str(self.name[0].capitalize())
 		except UnicodeEncodeError:
 			return "Unknown"
 		
-
 
 def get_persons(last_name):
 	ret = []
