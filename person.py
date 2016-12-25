@@ -42,7 +42,3 @@ def get_persons(last_name):
 		for i in response.json()['items']:
 			ret.append(Person(**i))
 	return ret
-
-	File "/home/libigelber/bhdbs-persons/person.py", line 29, in names_of_person
-    return str(self.name[0].capitalize())
-UnicodeEncodeError: 'ascii' codec can't encode characters in position 6-9: ordinal not in range(128)
