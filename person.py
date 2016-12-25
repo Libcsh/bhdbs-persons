@@ -26,15 +26,23 @@ class Person:
 	@property
 	def names_of_person(self):
 		self.name = self.name
-		return str(self.name[0].capitalize())
-		# return " ".join(str(elm.capitalize()) for elm in self.name)
+		names_of = str(self.name[0].capitalize())
+		try:
+			return names_of
+		except UnicodeEncodeError:
+			return "Unknown"
+		
 
 
 def get_persons(last_name):
 	ret = []
-	for number in range(0,4590,30):
+	for number in range(0,44910,30):
 		url = "http://api.dbs.bh.org.il/v1/person?last_name={}&start={}".format(last_name, number)
 		response = requests.get(url)
 		for i in response.json()['items']:
 			ret.append(Person(**i))
 	return ret
+
+	File "/home/libigelber/bhdbs-persons/person.py", line 29, in names_of_person
+    return str(self.name[0].capitalize())
+UnicodeEncodeError: 'ascii' codec can't encode characters in position 6-9: ordinal not in range(128)
